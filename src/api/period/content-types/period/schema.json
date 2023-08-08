@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "periods",
+  "info": {
+    "singularName": "period",
+    "pluralName": "periods",
+    "displayName": "Period",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "collaborator": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::collaborator.collaborator",
+      "inversedBy": "periods"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collaborators",
+  "info": {
+    "singularName": "collaborator",
+    "pluralName": "collaborators",
+    "displayName": "Collaborator",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "position": {
+      "type": "string",
+      "required": true
+    },
+    "contract_dt": {
+      "type": "date",
+      "required": true
+    },
+    "periods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::period.period",
+      "mappedBy": "collaborator"
+    }
+  }
+}
