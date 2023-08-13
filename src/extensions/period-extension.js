@@ -1,4 +1,4 @@
-const { isBefore, isAfter } = require("date-fns");
+const { isBefore, isAfter, differenceInMonths } = require("date-fns");
 
 module.exports = {
   register({ strapi }) {
@@ -15,7 +15,7 @@ module.exports = {
 
             const existingPeriods = await strapi.services[
               "api::period.period"
-            ].find();
+            ].find({ filters: { collaborator: collaborator } });
 
             const newPeriodStart = new Date(start_date);
             const newPeriodEnd = new Date(end_date);
@@ -32,6 +32,22 @@ module.exports = {
               ) {
                 throw new Error("Períodos de férias não podem se sobrepor");
               }
+            }
+
+            const collaboratorInfo = await strapi.services[
+              "api::collaborator.collaborator"
+            ].findOne(collaborator);
+
+            if (!collaboratorInfo) {
+              throw new Error("Colaborador não encontrado");
+            }
+
+            const hireDate = new Date(collaboratorInfo.contract_dt);
+
+            if (differenceInMonths(newPeriodStart, hireDate) < 12) {
+              throw new Error(
+                "O primeiro período de férias deve começar pelo menos 12 meses após a data de contratação."
+              );
             }
 
             try {
