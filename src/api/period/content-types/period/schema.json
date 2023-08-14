@@ -25,6 +25,13 @@
       "relation": "manyToOne",
       "target": "api::collaborator.collaborator",
       "inversedBy": "periods"
+    },
+    "num_periods": {
+      "type": "integer",
+      "default": 1,
+      "required": true,
+      "max": 3,
+      "min": 1
     }
   }
 }
