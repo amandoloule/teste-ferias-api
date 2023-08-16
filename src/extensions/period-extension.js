@@ -1,3 +1,7 @@
+/*
+* Validações
+*/
+
 const { isBefore, isAfter, differenceInMonths } = require("date-fns");
 
 module.exports = {
