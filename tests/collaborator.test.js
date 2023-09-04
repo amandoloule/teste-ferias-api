@@ -9,7 +9,7 @@ describe("collaborator controller test", () => {
   afterAll(() => {
     strapi.server.destroy();
   });
-  it("should return list of controller", async () => {
+  it("should return list of collaborator", async () => {
     await request(strapi.server.httpServer)
       .get("/api/collaborators")
       .expect(200)
