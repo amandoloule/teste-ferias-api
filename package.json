@@ -7,9 +7,16 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "test": "jest --forceExit --detectOpenHandles"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.5.4",
+    "custom-env": "^2.0.2",
+    "jest": "^29.6.4",
+    "sqlite": "^5.0.1",
+    "supertest": "^6.3.3"
+  },
   "dependencies": {
     "@strapi/plugin-graphql": "4.12.1",
     "@strapi/plugin-i18n": "4.12.1",
@@ -28,5 +35,14 @@
     "node": ">=16.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".cache"
+    ],
+    "testEnvironment": "node",
+    "testTimeout": 15000,
+    "globalTeardown": "<rootDir>/tests/cleanup.js"
+  }
 }

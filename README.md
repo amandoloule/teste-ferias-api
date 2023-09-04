@@ -2,9 +2,13 @@
 
 Projeto utilizando yarn
 
-Após o cadastro inicial no Strapi, ir em "Settings --> USERS & PERMISSIONS PLUGIN --> Roles --> Public" e habilitar os actions de Collaborator e Period
-
 As validações estão na pasta src/extensions como extensões ao plugin do GraphQL
+
+Testes feitos em JEST. Podem ser executados através do comando:
+
+```
+yarn test
+```
 
 O app está online no link a seguir:
 
