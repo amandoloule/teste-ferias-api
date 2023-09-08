@@ -4,6 +4,8 @@ Projeto utilizando yarn
 
 As validações estão na pasta src/extensions como extensões ao plugin do GraphQL
 
+As validações também foram adicionadas ao REST na pasta src/api/period/controllers
+
 Testes feitos em JEST. Podem ser executados através do comando:
 
 ```
